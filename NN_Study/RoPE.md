@@ -1,3 +1,5 @@
+https://g3lu.tistory.com/38
+https://mari970.tistory.com/49
 # RoPE
 * Rotary Position Embedding
 * Transformer 모델은 본질적으로 순서에 무관, Position embedding통해 위치 정보를 보존
@@ -31,3 +33,13 @@ $$ g(x_m,x_n,m-n)=Re[(W_qx_m)(W_kx_n)*e^{i(m-n)\theta}]$$
 * Query복소수 곱셈 Key복소수 한 결과의 실수 부분만 취함
 * 실수값만 취하는 이유는 Softmax를 통해 중요도를 결정할때 실수값이 필요하기 때문
 
+### 2D General Form
+$$ f_{\{q,k\}}(x_m,m) = R_{\Theta,m}^{d}W_{\{q,k\}}x_m $$
+
+$$ R_{\Theta,m}^{d} =  
+\begin{pmatrix}
+  cos(m\theta_{1}) & a_{1,2} & \cdots & a_{1,n} \\
+  a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+ \end{pmatrix}$$
