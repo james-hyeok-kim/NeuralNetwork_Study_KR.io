@@ -38,8 +38,18 @@ $$ f_{\{q,k\}}(x_m,m) = R_{\Theta,m}^{d}W_{\{q,k\}}x_m $$
 
 $$ R_{\Theta,m}^{d} =  
 \begin{pmatrix}
-  cos(m\theta_{1}) & a_{1,2} & \cdots & a_{1,n} \\
-  a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
-  \vdots  & \vdots  & \ddots & \vdots  \\
-  a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+  cos(m\theta_{1}) & -sin(m\theta_{1}) & 0 & 0 & \cdots & 0 & 0 \\
+  sin(m\theta_{1}) & cos(m\theta_{1}) &  0 & 0 & \cdots & 0 & 0 \\
+  0 & 0 & cos(m\theta_{2}) & -sin(m\theta_{2}) & \cdots & 0 & 0 \\
+  0 & 0 & sin(m\theta_{2}) & cos(m\theta_{2}) &  \cdots & 0 & 0 \\
+  \vdots  & \vdots  & \vdots  & \vdots  & \ddots & \vdots  &\vdots \\
+  0 & 0 & 0 & 0 & \cdots & cos(m\theta_{d/2}) & -sin(m\theta_{d/2}) \\
+  0 & 0 & 0 & 0 & \cdots & sin(m\theta_{d/2}) & cos(m\theta_{d/2}) \\
  \end{pmatrix}$$
+
+$$ \Theta = \theta_i = 10000^{-2(i-1)/d}, i\in[1,2,\ldots, d/2] $$
+
+
+#### Selft-Attention
+
+
