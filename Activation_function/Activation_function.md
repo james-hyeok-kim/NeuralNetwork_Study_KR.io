@@ -19,4 +19,11 @@ $$ GELU(x) = x \sigma(1.702x) $$
 </p>
 
 $$ y=x \sigma(x) $$
+$$ \sigma(x) = sigmoid(x) $$
   
+## Sigmoid
+<p align = "center">
+<img src = "https://github.com/user-attachments/assets/17bc80bf-102d-4f23-9d0d-229de3442820" width="40%" height="40%">
+</p>
+
+$$ S(x) = \frac{1}{(1+e^{-x})} $$
