@@ -50,6 +50,13 @@ $$ R_{\Theta,m}^{d} =
 $$ \Theta = \theta_i = 10000^{-2(i-1)/d}, i\in[1,2,\ldots, d/2] $$
 
 
+#### Computational efficient realization of rotary matrix multiplication
+$$ R_{\Theta,m}^{d}x = 
+\begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ \vdots \\ x_{d-1] \\ x_d \end{pmatrix}
+
+\begin{pmatrix} 
+
+
 #### Selft-Attention
 
 
