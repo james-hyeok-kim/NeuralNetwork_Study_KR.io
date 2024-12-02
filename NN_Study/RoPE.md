@@ -97,6 +97,27 @@ $$
 
 * $\otimes = tensor\ product $
 
-#### Selft-Attention
+#### Derivation
+(1) Query, Key $\rightarrow$ 회전 행렬 변환
 
+$$ q_m = R_d^{\Theta,m}W_qx_m $$
+$$ k_n = R_d^{\Theta,n}W_kx_n $$
+
+(2) 내적 계산
+
+$$ q_m^{\top}k_n = (R_d^{\Theta,m}W_qX_m)^\top (R_d^{\Theta,n}W_kx_n) $$
+
+(3) 전치 행렬 사용
+
+$$ (R_d^{\Theta,m}W_qx_m)^{\top} = x_{m}^{\top}W_{q}^{\top}(R_{d}^{\Theta,m})^{\top} $$
+
+(4) 회전 행렬의 성질
+
+회전 행렬 $(R_{d}^{\Theta,m}W_qx_m)^{\top}, (R_{d}^{\Theta,m})^{\top}$ 는 직교 행렬로 전치행렬은 역행렬과 같다
+
+$$ (R_d^{\Theta,m}W_qx_m)^{\top} = (R_d^{\Theta,m}W_qx_m)^{-1} $$
+
+* $(R_{d}^{\Theta,m}W_qx_m)^{\top}, (R_{d}^{\Theta,m})^{\top}$ 직교 행렬인 이유
+   - 행,열 이 서로 직교하고 모두 단위벡터 이기 때문
+   - 내적은 0이고 각 벡터의 크기는 1이기 때문
 
