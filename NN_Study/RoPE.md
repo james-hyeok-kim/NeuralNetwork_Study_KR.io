@@ -121,3 +121,47 @@ $$ (R_d^{\Theta,m}W_qx_m)^{\top} = (R_d^{\Theta,m}W_qx_m)^{-1} $$
    - 행,열 이 서로 직교하고 모두 단위벡터 이기 때문
    - 내적은 0이고 각 벡터의 크기는 1이기 때문
 
+$$ R_2(\theta) = 
+\begin{pmatrix}
+  cos\theta & -sin\theta \\
+  sin\theta & cos\theta \\
+\end{pmatrix}
+$$
+ 
+(5) 상대적 회전
+
+* n과 m의 차이에 따른 회전 행렬
+
+$$ (R_d^{\Theta,m})^{\top}R_d^{\Theta,n} = R_d^{\Theta, n-m} $$
+
+(6) 최종 결과
+
+$$ q_m^{\top}k_n = x_m^{\top}W_q^{\top}R_d^{\Theta,n-m}W_kx_n $$
+
+## Long term Decay
+* 멀어질수록 내적 값이 작아져야 한다
+
+$$ \theta_i = 10000^{-2i/d} $$
+* $d$: 모델 차원의 수
+* $i$: 차원 인덱스
+* $\theta_i$: 차원이 커질수록 작은 값, 고차원 인코딩 더 느리게 변화, 유사도 감소
+
+
+# RoPE with Linear Attention (Linear Transformer)
+* Linear Attention 계산 복잡도를 줄이기 위해 고안
+
+기존 attention
+
+$$ Attention(Q,K,V) = softmax( \frac{QK^{\top}}{\sqrt{d_k}} )V $$
+
+* 계산 복잡도 $O(N^2d_k)$
+
+유사도를 나타내는 함수 정의 $sim(Q,K)$
+
+$$ Attention(Q,K,V) = \frac{\displaystyle\sum_{n=1}^{N}\phi(Q)^{\top} \phi(K)\ V}{\displaystyle\sum_{n=1}^{N}\phi(Q)^{\top} \phi(K)} $$
+
+* $\phi(x)$: 비음수 함수(non-negative function)
+* 대부분 $\phi(x) = elu(x) + 1 $을 사용
+* 계산 복잡도 $O(Nd_k)$
+
+
