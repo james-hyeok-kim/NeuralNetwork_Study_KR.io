@@ -1,6 +1,7 @@
 https://g3lu.tistory.com/38
 https://mari970.tistory.com/49
 # RoPE
+* [PDF](https://arxiv.org/pdf/2104.09864)
 * Rotary Position Embedding
 * Transformer 모델은 본질적으로 순서에 무관, Position embedding통해 위치 정보를 보존
 * 회전행렬(Rotation Matrix)를 통해 고유각도 부여
@@ -51,11 +52,50 @@ $$ \Theta = \theta_i = 10000^{-2(i-1)/d}, i\in[1,2,\ldots, d/2] $$
 
 
 #### Computational efficient realization of rotary matrix multiplication
+
 $$ R_{\Theta,m}^{d}x = 
-\begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ \vdots \\ x_{d-1] \\ x_d \end{pmatrix}
-
 \begin{pmatrix} 
+  x_1 \\
+  x_2 \\ 
+  x_3 \\ 
+  x_4 \\ 
+  \vdots \\ 
+  x_{d-1} \\ 
+  x_d \\
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+  cos_{m\theta_1} \\
+  cos_{m\theta_1} \\
+  cos_{m\theta_2} \\
+  cos_{m\theta_2} \\
+  \vdots \\
+  cos_{m\theta_{d/2}} \\
+  cos_{m\theta_{d/2}} \\
+\end{pmatrix}
++
+\begin{pmatrix} 
+  -x_2 \\
+  x_1 \\ 
+  -x_4 \\ 
+  x_3 \\ 
+  \vdots \\ 
+  -x_{d} \\ 
+  x_{d-1} \\
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+  sin_{m\theta_1} \\
+  sin_{m\theta_1} \\
+  sin_{m\theta_2} \\
+  sin_{m\theta_2} \\
+  \vdots \\
+  sin_{m\theta_{d/2}} \\
+  sin_{m\theta_{d/2}} \\
+\end{pmatrix}
+$$
 
+* $\otimes = tensor\ product $
 
 #### Selft-Attention
 
