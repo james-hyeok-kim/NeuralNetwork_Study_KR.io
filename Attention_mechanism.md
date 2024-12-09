@@ -1,3 +1,4 @@
+from(https://velog.io/@sjinu/%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC-Attention-Mechanism)
 # Attention Mechanism
 
 ## Attention
@@ -36,10 +37,26 @@ $s_t$ : t 시점에서 decoder의 hidden state (예시에서 4차원)
 #### Step 1. Attention Score($e_t$)
 ![image](https://github.com/user-attachments/assets/ce6e20c1-1da6-450e-aa89-2e1018d5021b)
 
-#score(s_t ,h_i)=s_t^Th_i$
+$score(s_t ,h_i)=s_t^Th_i$
 ​이 때 결과 값은 scalar가 된다.
 
 * decoder의 time step은 t인 반면, 참고하는 encoder의 time step은 1부터 N까지
 * encoder의 모든 은닉 상태에 대한 decoder의 time step t에서의 Attention score를 계산하면 아래와 같이 나타낼 수 있습니다.
 
 $e_t=[s_t^{T}h_1, ..., s_T^{T}h_N]$
+
+#### Step 2. Attention Distribution
+![image](https://github.com/user-attachments/assets/6b189a97-3aa8-4abf-8d96-9b9d77b1ad3c)
+
+ * Attention scores $e_t$에 softmax(소프트맥스)함수를 적용해, 모든 값의 합이 1이 되는 확률 분포 Attention Distribution을 얻습니다.
+ * 즉, 위의 그림에 있는 Attention Distribution을 얻기 위해 아래와 같은 식을 사용하면 됩니다.
+   - $α_t =softmax(e_t)⋯ a_t$ 가 아닌 $α^t$입니다.
+   - 이 때 각각의 값을 Attention Weight(어텐션 가중치)라고 합니다.
+  
+이에 대한 식은 아래와 같이 기술할 수 있습니다.
+
+$a_t=\displaystyle\sum_{i=1}^Nα_i^th_i$
+​
+이러한 어텐션 값 $a_t$ 는 인코더의 맥락을 포함하고 있기 때문에 Context Vector(맥락 벡터) 라고도 불립니다
+(정확히는, decoder 내 time step t의 context vector)
+
