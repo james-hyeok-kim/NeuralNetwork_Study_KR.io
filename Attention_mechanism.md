@@ -51,10 +51,40 @@ $e_t=[s_t^{T}h_1, ..., s_T^{T}h_N]$
    - $α_t =softmax(e_t)⋯ a_t$ 가 아닌 $α^t$입니다.
    - 이 때 각각의 값을 Attention Weight(어텐션 가중치)라고 합니다.
   
+
+#### Step 3. Attention Weight + Hidden state 가중 -> Attention Value
+<p align="center"> <img src="https://github.com/user-attachments/assets/52e9010a-4752-475b-ab47-7d62e55da4e8" width="50%" height="50%"></p>
+
 이에 대한 식은 아래와 같이 기술할 수 있습니다.
 
-$a_t=\displaystyle\sum_{i=1}^Nα_i^th_i$
-​
-이러한 어텐션 값 $a_t$ 는 인코더의 맥락을 포함하고 있기 때문에 Context Vector(맥락 벡터) 라고도 불립니다
-(정확히는, decoder 내 time step t의 context vector)
+$a_t=\displaystyle\sum_{i=1}^Nα_i^th_i$​
+* 이러한 어텐션 값 $a_t$ 는 인코더의 맥락을 포함하고 있기 때문에 Context Vector(맥락 벡터) 라고도 불립니다
+* (정확히는, decoder 내 time step t의 context vector)
 
+#### Step 4. Concatenate
+
+<p align="center"> <img src="https://github.com/user-attachments/assets/51f4f949-3f32-4099-8756-b19bd6a5d1e4" width="50%" height="50%"></p>
+
+
+* Attention value $a_t$를 단순하게 decoder의 t 시점의 hidden state $s_t$ 와 연결(concatenate)해줍니다. 
+* 연결한 벡터를 $v_t$라고 가정하면, $v_t$는 기존의 Recurrent하게 얻은 decoder의 hidden state의 정보 외에도 encoder에서의 모든 hidden state를 고려한 정보 또한 포함
+* sequence가 길어지더라도 정보를 크게 잃지 않는다.
+
+
+#### Step 5. 출력층 연산 Input $\tilde{s_t}$ 계산
+<p align="center"> <img src="https://github.com/user-attachments/assets/5775c800-d82d-4026-98a8-dc5cde10cafe" width="50%" height="50%"></p>
+위
+연산에 대한 식은 아래와 같이 간단하게 나타낼 수 있습니다.
+
+$\tilde{s_t}=tanh(W_c)[a_t;s_t]+b_c)$
+
+$W_c$는 학습 가능한 가중치 행렬
+$b_c$는 편향
+$v_t=[a_t;s_t]의 형태
+$;$는 concat을 나타냅니다.
+
+최종 예측 $\hat{y_t}$
+$\hat{y_t}=Softmax(W_y\tilde{s_t}+b_y)
+
+
+<p align="center"> <img src="https://github.com/user-attachments/assets/7af2c05d-4f37-4ad2-89d9-70314bf71f3a" width="70%" height="70%"></p>
