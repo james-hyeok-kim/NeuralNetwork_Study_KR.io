@@ -87,4 +87,4 @@ $;$는 concat을 나타냅니다.
 $\hat{y_t}=Softmax(W_y\tilde{s_t}+b_y)
 
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/7af2c05d-4f37-4ad2-89d9-70314bf71f3a" width="70%" height="70%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/7af2c05d-4f37-4ad2-89d9-70314bf71f3a" width="80%" height="80%"></p>
