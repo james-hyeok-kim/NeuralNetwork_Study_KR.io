@@ -1,23 +1,21 @@
-from(https://velog.io/@sjinu/%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC-Attention-Mechanism)
+[Reference](https://velog.io/@sjinu/%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC-Attention-Mechanism)
 # Attention Mechanism
 
 ## Attention
 * 어텐션의 기본 아이디어는 디코더에서 출력 단어를 예측하는 매 시점(step)마다, 인코더의 입력 시퀀스를 다시 참고
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/5add34e2-deea-4c74-94e7-d595e7766d6d" width="50%" height="50%">
-</p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/5add34e2-deea-4c74-94e7-d595e7766d6d" width="50%" height="50%"></p>
 
 * 어텐션 함수는 주어진 '쿼리(Query)'에 대해 모든 '키(Key)'의 유사도 
 * 이 유사도를 키(Key)와 매핑되어 있는 각각의 '값(Value)'에 반영
 * '유사도가 반영된' 값(Value)을 모두 더해서 리턴하고, 어텐션 값(Attention value)를 반환
 
 ### Dot-Product Attention
-![image](https://github.com/user-attachments/assets/66891df0-2d55-489b-a1b0-30559790ccb4)
+<p align="center"> <img src="https://github.com/user-attachments/assets/66891df0-2d55-489b-a1b0-30559790ccb4" width="50%" height="50%"></p>
 
 * Decoder의 세번째 LSTM Cell에서 출력 단어를 예측할 때 어텐션 메커니즘을 사용하는 예시
   - (왼쪽 오렌지색 encoder, 오른쪽 초록색 decoder)
-![image](https://github.com/user-attachments/assets/9dccf543-31e7-4d7d-a0f4-fd92789211dd)
+<p align="center"> <img src="https://github.com/user-attachments/assets/9dccf543-31e7-4d7d-a0f4-fd92789211dd" width="50%" height="50%"></p>
 
 * Attention 메커니즘을 적용함으로써, 세번째 단어를 예측할 때 예측 단어와 encoder의 모든 시퀀스('I', 'am', 'a', 'stduent')의 관계를 파악하게 됩니다.
 이 때, 파악하는 방식은 그림 내에도 존재하는 softmax를 이용함으로써 이루어집니다.
@@ -35,7 +33,7 @@ $s_t$ : t 시점에서 decoder의 hidden state (예시에서 4차원)
   - softmax를 통해 구한 분포를 토대로 인코더에서, 가중치와 hidden state를 가중합하여 Attention Value를 구한다.
 
 #### Step 1. Attention Score($e_t$)
-![image](https://github.com/user-attachments/assets/ce6e20c1-1da6-450e-aa89-2e1018d5021b)
+<p align="center"> <img src="https://github.com/user-attachments/assets/ce6e20c1-1da6-450e-aa89-2e1018d5021b" width="50%" height="50%"></p>
 
 $score(s_t ,h_i)=s_t^Th_i$
 ​이 때 결과 값은 scalar가 된다.
@@ -46,7 +44,7 @@ $score(s_t ,h_i)=s_t^Th_i$
 $e_t=[s_t^{T}h_1, ..., s_T^{T}h_N]$
 
 #### Step 2. Attention Distribution
-![image](https://github.com/user-attachments/assets/6b189a97-3aa8-4abf-8d96-9b9d77b1ad3c)
+<p align="center"> <img src="https://github.com/user-attachments/assets/6b189a97-3aa8-4abf-8d96-9b9d77b1ad3c" width="50%" height="50%"></p>
 
  * Attention scores $e_t$에 softmax(소프트맥스)함수를 적용해, 모든 값의 합이 1이 되는 확률 분포 Attention Distribution을 얻습니다.
  * 즉, 위의 그림에 있는 Attention Distribution을 얻기 위해 아래와 같은 식을 사용하면 됩니다.
