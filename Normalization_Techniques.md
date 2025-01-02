@@ -30,3 +30,19 @@ $$y=\frac{x}{\sqrt{(mean(x²)+ε)}}$$
 
 
 ## Z-score standardization
+
+
+# Adaptive Layer Normalization (AdaLN)
+## DiT Block with AdaLN-Zero 
+$$ y = (\gamma * x) >> \beta $$
+
+## AdaNorm $\Phi(y)$
+1. $\Phi(y)$ 미분 가능
+2. 평균 scaling wiehgt 고정(fixed)
+3. z 평균 bounded(특정 범위)
+
+$$ \Phi(y_i) = C(1-\frac{y_i}{10}) $$
+
+$$ z=C(1-ky)\odot y, y=\frac{x-\mu}{\sigma}, \mu = \frac{1}{H} \displaystyle\sum^H_{i=1}x_i, \sigma = \sqrt{\frac{1}{H}\displaystyle\sum_{i=1}^{H}(x_i - \mu)^2}$$ 
+
+* $C = hyper parameter, k = 1/10$
