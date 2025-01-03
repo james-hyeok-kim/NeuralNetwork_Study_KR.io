@@ -50,6 +50,8 @@ $$ z=C(1-ky)\odot y, y=\frac{x-\mu}{\sigma}, \mu = \frac{1}{H} \displaystyle\sum
 
 # Adaptive Instance Normalization
 Content Input $x$, Style Input $y$
+* Simply align the channel-wise mean and variance of x to match those of y
+* AdaIN has no learnable affine parameters.
 
 $$ AdaIN(x,y) = \sigma(y)\left(\frac{x-\mu(x)}{\sigma(x)}\right) + \mu(y) $$
 
