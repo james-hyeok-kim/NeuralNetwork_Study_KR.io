@@ -46,3 +46,10 @@ $$ \Phi(y_i) = C(1-\frac{y_i}{10}) $$
 $$ z=C(1-ky)\odot y, y=\frac{x-\mu}{\sigma}, \mu = \frac{1}{H} \displaystyle\sum^H_{i=1}x_i, \sigma = \sqrt{\frac{1}{H}\displaystyle\sum_{i=1}^{H}(x_i - \mu)^2}$$ 
 
 * $C = hyper parameter, k = 1/10$
+
+
+# Adaptive Instance Normalization
+Content Input $x$, Style Input $y$
+
+$$ AdaIN(x,y) = \sigma(y)\left(\frac{x-\mu(x)}{\sigma(x)}\right) + \mu(y) $$
+
