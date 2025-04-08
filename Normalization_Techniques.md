@@ -55,3 +55,16 @@ Content Input $x$, Style Input $y$
 
 $$ AdaIN(x,y) = \sigma(y)\left(\frac{x-\mu(x)}{\sigma(x)}\right) + \mu(y) $$
 
+
+# Normalization
+
+* Training Parameter
+
+$$ \hat{x_i} = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} $$ 
+$$ y_i = \gamma\hat{x} + \beta $$
+$$ \gamma = scale, \beta = shift, Both \ training \ parameter $$
+
+* Variance
+
+$$ \sigma^2 = \frac{1}{m}\displaystyle\sum_{i=1}^{m}(x_i-\mu)^2 $$  
+$$ \sigma^2 = \frac{\sum(x^2)}{N} - \left(\frac{\sum(x)}{N}\right)^2 $$
