@@ -32,10 +32,6 @@ $$y=\frac{x}{\sqrt{(mean(x²)+ε)}}$$
 ## Z-score standardization
 
 
-# Adaptive Layer Normalization (AdaLN)
-## DiT Block with AdaLN-Zero 
-$$ y = (\gamma * x) >> \beta $$
-
 ## AdaNorm $\Phi(y)$
 1. $\Phi(y)$ 미분 가능
 2. 평균 scaling wiehgt 고정(fixed)
