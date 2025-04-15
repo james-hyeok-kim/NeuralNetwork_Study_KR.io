@@ -64,3 +64,8 @@ $$ \gamma = scale, \beta = shift, Both \ training \ parameter $$
 
 $$ \sigma^2 = \frac{1}{m}\displaystyle\sum_{i=1}^{m}(x_i-\mu)^2 $$  
 $$ \sigma^2 = \frac{\sum(x^2)}{N} - \left(\frac{\sum(x)}{N}\right)^2 $$
+
+* Standard Deviation
+
+$$ \sigma = \sqrt{\frac{1}{m}\displaystyle\sum_{i=1}^{m}(x_i-\mu)^2} $$ 
+$$ \sigma = \sqrt{\frac{\sum(x^2)}{N} - \left(\frac{\sum(x)}{N}\right)^2} $$
