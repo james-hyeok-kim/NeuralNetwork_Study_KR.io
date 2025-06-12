@@ -19,3 +19,6 @@ $$ FiLM(h, \gamma, \beta) = \gamma \odot h + \beta $$
  <img src="https://github.com/user-attachments/assets/7633e05d-a3cf-4d6d-9d72-7907c2a98475" width="50%" height="50%">
 </p>
 
+
+* Appendix
+   * $\gamma, \beta$ training을 통해 구할때도 선형적으로 변하지 않을수 있기 때문에, FC -> Gelu -> FC처럼 비선형 layer를 하나 두고 구하기도 한다.
