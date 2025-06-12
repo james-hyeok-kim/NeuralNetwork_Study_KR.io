@@ -62,3 +62,45 @@ $$ \sigma(x) = sigmoid(x) $$
 
 $$ S(x) = \frac{1}{(1+e^{-x})} $$
 
+## GEGLU
+* Gelu Gated Linear Units [(Paper Link)](https://arxiv.org/pdf/2002.05202v1)
+
+$$ GEGLU(x, W, V, b, c) = GELU(xW + b) \odot (xV + c) $$ 
+
+* Terminology
+  * x = input vector
+  * W & V = Weight vector
+  * b & c = bias vector
+  * $\odot$  = elementwise multiplication
+
+* 장점
+  * GEGLU는 GLU에 비해 학습 과정에서 부드럽게 기울면서 학습 과정에서 안정적 수렴 유도
+  * LLM에서 ReGLU, SwiGLU와 함께 뛰어난 성능
+  * 선형성과 비선형성의 결합, 복잡한 패턴 학습에 좋다
+  * 발전 과정 GLU > Bilinear GLU > ReGLU > GEGLU
+
+* GLU (Gated Linear Units)
+
+$$ GLU(x, W, V, b, c) = \sigma(xW + b) \odot (xV + c) $$
+* $\sigma$ = sigmoid
+
+* Background
+  * LSTM이나 GRU(Gated Reccurent Unit)에서 선택적으로 정보를 걸러내기 위해 등장
+  * Sigmoid나 Tanh보다 기울기 소실 문제를 완화, 학습 안정화에 도움
+  * 복잡한 패턴 학습을 위해 등장
+  * 자연어 분야에서 효과
+
+* Bilinear
+
+$$ Bilinear(x, W, V, b, c) = (xW + b) \odot (xV + c) $$
+
+* ReGLU
+  
+$$ ReGLU(x, W, V, b, c) = max(0, xW + b) \odot (xV + c) $$
+
+* SwiGLU
+  
+$$ SwiGLU(x, W, V, b, c, \beta) = Swish_\beta(xW + b) \odot (xV + c) $$
+$$Swish_\beta (x) = x\sigma(\beta x) $$
+
+
