@@ -14,3 +14,6 @@ $$ FiLM(h, \gamma, \beta) = \gamma \odot h + \beta $$
   * 이미지 생성 : 특정 스타일에 맞춰 이미지 생성 가능
   * 도메인 적응 : 다른 도메인의 데이터에 모델을 적응시킬때, 도메인 정보를 학습
   * 강화학습 : 에이전트의 행동을 환경상태나 보상함수에 따라 조건화
+
+
+![image](https://github.com/user-attachments/assets/7633e05d-a3cf-4d6d-9d72-7907c2a98475)
