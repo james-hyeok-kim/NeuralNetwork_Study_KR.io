@@ -102,5 +102,5 @@ $$ ReGLU(x, W, V, b, c) = max(0, xW + b) \odot (xV + c) $$
   
 $$ SwiGLU(x, W, V, b, c, \beta) = Swish_\beta(xW + b) \odot (xV + c) $$
 $$Swish_\beta (x) = x\sigma(\beta x) $$
-
+$$ SwiGLU = x\sigma(\beta x) \odot y $$
 
