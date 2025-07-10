@@ -4,18 +4,18 @@
 ## Attention
 * 어텐션의 기본 아이디어는 디코더에서 출력 단어를 예측하는 매 시점(step)마다, 인코더의 입력 시퀀스를 다시 참고
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/5add34e2-deea-4c74-94e7-d595e7766d6d" width="50%" height="50%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/5add34e2-deea-4c74-94e7-d595e7766d6d"></p>
 
 * 어텐션 함수는 주어진 '쿼리(Query)'에 대해 모든 '키(Key)'의 유사도 
 * 이 유사도를 키(Key)와 매핑되어 있는 각각의 '값(Value)'에 반영
 * '유사도가 반영된' 값(Value)을 모두 더해서 리턴하고, 어텐션 값(Attention value)를 반환
 
 ### Dot-Product Attention
-<p align="center"> <img src="https://github.com/user-attachments/assets/66891df0-2d55-489b-a1b0-30559790ccb4" width="50%" height="50%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/66891df0-2d55-489b-a1b0-30559790ccb4" ></p>
 
 * Decoder의 세번째 LSTM Cell에서 출력 단어를 예측할 때 어텐션 메커니즘을 사용하는 예시
   - (왼쪽 오렌지색 encoder, 오른쪽 초록색 decoder)
-<p align="center"> <img src="https://github.com/user-attachments/assets/9dccf543-31e7-4d7d-a0f4-fd92789211dd" width="50%" height="50%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/9dccf543-31e7-4d7d-a0f4-fd92789211dd" ></p>
 
 * Attention 메커니즘을 적용함으로써, 세번째 단어를 예측할 때 예측 단어와 encoder의 모든 시퀀스('I', 'am', 'a', 'stduent')의 관계를 파악하게 됩니다.
 이 때, 파악하는 방식은 그림 내에도 존재하는 softmax를 이용함으로써 이루어집니다.
@@ -33,7 +33,7 @@ $s_t$ : t 시점에서 decoder의 hidden state (예시에서 4차원)
   - softmax를 통해 구한 분포를 토대로 인코더에서, 가중치와 hidden state를 가중합하여 Attention Value를 구한다.
 
 #### Step 1. Attention Score($e_t$)
-<p align="center"> <img src="https://github.com/user-attachments/assets/ce6e20c1-1da6-450e-aa89-2e1018d5021b" width="50%" height="50%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/ce6e20c1-1da6-450e-aa89-2e1018d5021b" ></p>
 
 $score(s_t ,h_i)=s_t^Th_i$
 ​이 때 결과 값은 scalar가 된다.
@@ -44,7 +44,7 @@ $score(s_t ,h_i)=s_t^Th_i$
 $e_t=[s_t^{T}h_1, ..., s_T^{T}h_N]$
 
 #### Step 2. Attention Distribution
-<p align="center"> <img src="https://github.com/user-attachments/assets/6b189a97-3aa8-4abf-8d96-9b9d77b1ad3c" width="50%" height="50%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/6b189a97-3aa8-4abf-8d96-9b9d77b1ad3c" ></p>
 
  * Attention scores $e_t$에 softmax(소프트맥스)함수를 적용해, 모든 값의 합이 1이 되는 확률 분포 Attention Distribution을 얻습니다.
  * 즉, 위의 그림에 있는 Attention Distribution을 얻기 위해 아래와 같은 식을 사용하면 됩니다.
@@ -53,7 +53,7 @@ $e_t=[s_t^{T}h_1, ..., s_T^{T}h_N]$
   
 
 #### Step 3. Attention Weight + Hidden state 가중 -> Attention Value
-<p align="center"> <img src="https://github.com/user-attachments/assets/52e9010a-4752-475b-ab47-7d62e55da4e8" width="50%" height="50%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/52e9010a-4752-475b-ab47-7d62e55da4e8" ></p>
 
 이에 대한 식은 아래와 같이 기술할 수 있습니다.
 
@@ -63,7 +63,7 @@ $a_t=\displaystyle\sum_{i=1}^Nα_i^th_i$​
 
 #### Step 4. Concatenate
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/51f4f949-3f32-4099-8756-b19bd6a5d1e4" width="50%" height="50%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/51f4f949-3f32-4099-8756-b19bd6a5d1e4" ></p>
 
 
 * Attention value $a_t$를 단순하게 decoder의 t 시점의 hidden state $s_t$ 와 연결(concatenate)해줍니다. 
@@ -72,7 +72,7 @@ $a_t=\displaystyle\sum_{i=1}^Nα_i^th_i$​
 
 
 #### Step 5. 출력층 연산 Input $\tilde{s_t}$ 계산
-<p align="center"> <img src="https://github.com/user-attachments/assets/5775c800-d82d-4026-98a8-dc5cde10cafe" width="50%" height="50%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/5775c800-d82d-4026-98a8-dc5cde10cafe" ></p>
 위
 연산에 대한 식은 아래와 같이 간단하게 나타낼 수 있습니다.
 
@@ -87,4 +87,4 @@ $;$는 concat을 나타냅니다.
 $\hat{y_t}=Softmax(W_y\tilde{s_t}+b_y)
 
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/7af2c05d-4f37-4ad2-89d9-70314bf71f3a" width="80%" height="80%"></p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/7af2c05d-4f37-4ad2-89d9-70314bf71f3a" ></p>
