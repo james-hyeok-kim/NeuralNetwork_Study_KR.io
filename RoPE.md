@@ -8,10 +8,10 @@ https://mari970.tistory.com/49
 * Absolute Position 인코딩 가능
 * Relative Position의 Dependency를 통합
 
-<P align="center"> <img src="https://github.com/user-attachments/assets/b1034452-4d19-4bac-ad8f-7c422b49c577" width="70%" height="70%"> </P>
+<P align="center"> <img src="https://github.com/user-attachments/assets/b1034452-4d19-4bac-ad8f-7c422b49c577" > </P>
 
 
-<P align="center"> <img src="https://github.com/user-attachments/assets/fbdfb55d-2856-4a70-869c-66db0f3177f3" width="30%" height="30%"> </P>
+<P align="center"> <img src="https://github.com/user-attachments/assets/fbdfb55d-2856-4a70-869c-66db0f3177f3" > </P>
 
 * 복소 평면상에서 회전을 토큰위치정보를 통해 벡터에 표현. 
 * Query m
