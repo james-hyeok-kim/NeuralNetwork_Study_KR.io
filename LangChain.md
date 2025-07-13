@@ -90,3 +90,17 @@ LangChain 서드파티 라이브러리를 보여주는 테이블
 |Microsoft AzureOpenAI LLM|langchain-openai|
 |Ollama LLM|langchain-ollama|
 |OpenAI LLM|langchain-openai|
+
+
+---
+
+## Agent
+
+* 만약 최신 날짜를 기준으로 정보를 알고 싶다면 어떻게 해야할까(최신 기사, 최신 동향 등) 언어 모델(LLM)은 특정한 날짜를 기준으로 훈련을 받음, 이러한 종류의 task에는 최신 데이터가 언어 모델(LLM)의 훈련 셋에 포함되어 있지 않았었기 때문에, 다시 말해 배운적이 없기 때문에 답변이 불가능하다.
+
+* 그렇다면 언어 모델(LLM)이 최신 데이터를 필요로 하는 작업을 사용자는 요청할 수 없는걸까? 답은 그렇지 않다! Agent를 통해 이러한 작업을 요청 가능하게 해줄 수 있다.
+
+<img width="2187" height="1137" alt="image" src="https://github.com/user-attachments/assets/b6157ccd-a102-4555-96e6-8de29f6b5d01" />
+
+
+
