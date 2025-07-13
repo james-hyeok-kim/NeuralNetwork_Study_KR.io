@@ -61,4 +61,34 @@ RAG은 LLM은 소스의 저작자 표시를 통해 정확한 정보를 제공할
 
 
 RAG 논문: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+
 [PDF](https://arxiv.org/abs/2005.11401)
+
+
+
+## RAG 기술을 적용한 상용 서비스 사례
+2024.05.07
+
+* Microsoft Bing Search
+
+2023년 2월, Microsoft는 Bing 검색 엔진에 RAG 기술을 적용한 대화형 AI 기능을 추가했습니다.
+
+* Anthropic's Constitutional AI (CAI)
+
+Anthropic사는 RAG 기술을 활용한 대화형 AI 모델인 CAI를 개발했습니다.
+
+CAI는 대화 과정에서 외부 지식을 활용하여 사용자의 질문에 답변을 생성합니다.
+
+생성된 응답의 근거가 되는 출처를 명시하여 신뢰성을 높였습니다.
+
+* Perplexity AI
+
+Perplexity AI는 RAG 기반의 질의응답 서비스를 제공하는 스타트업입니다.
+
+* OpenAI's WebGPT (in development)
+
+OpenAI는 GPT 모델에 RAG 기술을 적용한 WebGPT를 개발 중입니다.
+
+WebGPT는 웹 검색을 통해 획득한 지식을 활용하여 사용자의 질의에 대한 응답을 생성할 것으로 예상됩니다.
+
+아직 공개된 서비스는 아니지만, 향후 RAG 기술의 발전 방향을 보여주는 사례로 주목받고 있습니다.
