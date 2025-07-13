@@ -1,5 +1,11 @@
 ## Paged Attention
 
+
+KV cache의 특징으로는
+* Large: 단적으로 LLaMA-13B를 예로 들었을 때 단일 시퀀스에 대해 최대 1.7GB를 차지함
+* Dynamic: 시퀀스 길이에 따라 크기가 달라지며, 가변적이고 예측이 힘듬. 기존 시스템은 fragmentation과 over-reservation으로 인해 60~80%의 메모리를 낭비
+
+
 <p align="center"> <img width="1280" height="612" alt="image" src="https://github.com/user-attachments/assets/f4f0bb53-7777-48b9-ba3e-14bd4e210e8a"> </p>
 
 ---
