@@ -30,3 +30,6 @@ PagedAttention에서 메모리 낭비는 시퀀스의 마지막 블록에서만 
 그리고 실제 메모리 낭비는 4% 미만으로 거의 최적에 가까운 메모리 사용량을 얻을 수 있다. 
 
 이러한 메모리 효율성 향상은 시스템에서 더 많은 batch 를 한번에 처리할 수 있다.
+
+<img width="1280" height="513" alt="image" src="https://github.com/user-attachments/assets/62098025-54e2-4de8-a6c6-06699e1dfc71" />
+
