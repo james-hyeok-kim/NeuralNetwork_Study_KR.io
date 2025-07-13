@@ -46,3 +46,44 @@ agent = initialize_agent(tools, llm, agent_type="zero-shot-react-description", v
 agent.run("LangChain이 무엇인지 알려줘")
 
 ```
+
+---
+
+## LangChain 시작하기
+
+LangChain 설치
+Windows에서 비교적 가볍게 LangChain을 시작해 볼 수 있습니다. LangChain을 시작하기 위해서는 Python 설치가 필요합니다. 아래 단계는 Windows PowerShell을 사용하여 진행됩니다.
+
+(1) Python 설치
+먼저 Python 공식 웹사이트에서 Python 3.8 이상 버전을 다운로드하여 설치합니다. 설치 시 "Add Python to PATH" 옵션을 선택합니다.
+
+(2) LangChain 설치
+Windows PowerShell 명령 프롬프트 창에서 다음 명령어를 입력하여 LangChain을 설치합니다. 이렇게 하면 LangChain의 최소 요구사항이 설치됩니다. 특정 통합을 위해서는 별도로 라이브러리 패키지를 설치해야 합니다.
+
+```python
+pip install langchain
+```
+
+(3) 서드파티 설치: OpenAI
+OpenAI에서 제공하는 LLM을 사용한다고 가정하면, 다음 명령어를 입력하여 OpenAI 라이브러리를 설치합니다. 다른 업체에서 제공하는 라이브러리는 아래 표를 참조해 주세요.
+
+```python
+pip install langchain-openai
+```
+
+
+LangChain 서드파티 라이브러리를 보여주는 테이블
+
+|제공업체|라이브러리명|
+|:---:|:---:|
+|Anthropic LLM|langchain-anthropic|
+|AWS Bedrock LLM|langchain-aws|
+|Cohere LLM|langchain-cohere|
+|Fireworks LLM|langchain-fireworks|
+|Google LLM|Google Generative AI : langchain-google-genai|
+|          |Vertex AI : langchain-google-vertexai|
+|Hugging Face LLM|langchain-huggingface|
+|IBM LLM|langchain-ibm|
+|Microsoft AzureOpenAI LLM|langchain-openai|
+|Ollama LLM|langchain-ollama|
+|OpenAI LLM|langchain-openai|
