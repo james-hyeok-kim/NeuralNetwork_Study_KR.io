@@ -103,4 +103,8 @@ LangChain 서드파티 라이브러리를 보여주는 테이블
 <img width="2187" height="1137" alt="image" src="https://github.com/user-attachments/assets/b6157ccd-a102-4555-96e6-8de29f6b5d01" />
 
 
+주요 개념 Agent 와 동작원리
+* Agent는 사용자를 대신해 작업을 수행하고 언어 모델(LLM)과 소통하는 역할
+* 과제를 완료하기 위해 큰 작업을 어떤 하위 작업을 세분화하고 수행해야할지 계산
+* Chain-of-Thought(CoT) 생각의 사슬, 프롬프트 엔지니어링 테크닉
 
