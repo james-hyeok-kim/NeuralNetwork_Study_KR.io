@@ -18,3 +18,47 @@
 
 ---
 
+## 이점
+
+### 비용 효율적인 구현
+조직 또는 도메인별 정보를 위해 파운데이션 모델(FM)을 재교육하는 데 드는 계산 및 재정적 비용이 많이 듭니다.
+
+### 최신 정보
+RAG를 사용하여 LLM을 라이브 소셜 미디어 피드, 뉴스 사이트 또는 기타 자주 업데이트되는 정보 소스에 직접 연결할 수 있습니다.
+
+### 사용자 신뢰 강화
+RAG은 LLM은 소스의 저작자 표시를 통해 정확한 정보를 제공할 수 있습니다. 
+
+### 개발자 제어 강화
+개발자는 민감한 정보 검색을 다양한 인증 수준으로 제한하고 LLM이 적절한 응답을 생성하도록 할 수 있습니다.
+
+
+## 작동 원리
+
+
+<img width="898" height="532" alt="image" src="https://github.com/user-attachments/assets/6cba5aaf-c96f-47cd-90ba-fc9e230b5683" />
+
+1. 외부 데이터 생성
+* 생성형 AI 모델이 이해할 수 있는 지식 라이브러리를 생성
+  
+2. 관련 정보 검색
+3. LLM 프롬프트 확장
+4. 외부 데이터 업데이트
+
+
+---
+
+## RAG의 핵심 알고리즘 설명
+
+### Dense Passage Retrieval (DPR)
+* Dual Encoder 구조: DPR은 질문과 문서를 각각 독립적으로 인코딩하는 두 개의 BERT 모델을 사용합니다.
+* 유사도 계산: 질문 벡터와 문서 벡터 간의 dot product를 계산하여 유사도를 측정합니다.
+* 탑-K 문서 선택: 유사도 계산 결과를 바탕으로, 가장 관련성이 높은 상위 K개의 문서를 선택합니다.
+
+### Sequence-to-Sequence 생성 모델
+* BART/T5 모델: RAG는 BART 또는 T5와 같은 sequence-to-sequence 생성 모델을 사용합니다. 이 모델들은 입력 시퀀스를 받아 출력 시퀀스를 생성합니다.
+* 문서 결합: 선택된 문서들을 입력으로 받아, 질문과 결합하여 답변을 생성합니다.
+
+
+RAG 논문: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+[PDF](https://arxiv.org/abs/2005.11401)
