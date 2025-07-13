@@ -1,6 +1,8 @@
 # RAG
 
-RAG는 Retrieval-Augmented Generation의 줄임말로, 외부 지식을 검색(Retrieve)해서 LLM의 생성(Generation)에 보조 정보로 추가하는 방식입니다.
+* RAG는 Retrieval-Augmented Generation의 줄임말로, 외부 지식을 검색(Retrieve)해서 LLM의 생성(Generation)에 보조 정보로 추가하는 방식입니다.
+
+* RAG는 LLM이 학습하지 않은 정보에 대해 답변을 잘 못하는 문제를 해결하기 위해, 외부 데이터 소스를 활용하여 답변의 정확도를 높이는 기술
 
 ## 왜 필요한가?
 
