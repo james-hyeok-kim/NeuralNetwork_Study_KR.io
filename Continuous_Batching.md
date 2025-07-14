@@ -37,5 +37,5 @@ LLM에서 사용하는 전통적인 방식을 Static Batching이라고 명명
 
 
 ### Continuouse Batching 지원하는 Framework
-* vLLM, TGI, Tensor-RT-LLM, Deepspeed-fastgen
+* vLLM, TGI(Text Generation Inference), Tensor-RT-LLM, Deepspeed-fastgen
 
