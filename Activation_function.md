@@ -96,7 +96,9 @@ tanh(x)= \frac{e^x−e^{−x}}{e^x+e^{−x}}
 
 ```math
 tanh(x)=2σ(2x)−1
+```
 
+```math
 σ(x)= \frac{1}{2}(tanh(\frac{x}{2})+1)
 ```
 
