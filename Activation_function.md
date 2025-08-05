@@ -62,6 +62,44 @@ $$ \sigma(x) = sigmoid(x) $$
 
 $$ S(x) = \frac{1}{(1+e^{-x})} $$
 
+## Shift Sigmoid
+* Shifting a sigmoid function horizontally involves adding or subtracting a constant value to the input (x) of the sigmoid function.
+* This shifts the entire curve to the left or right along the x-axis.
+* To shift it to the right, subtract a constant from x, and to shift it to the left, add a constant to x. 
+
+Mathematical Explanation:
+A standard sigmoid function is represented as: 
+
+
+```math
+f(x) = 1 / (1 + exp(-x))
+```
+
+### Sigmoid 함수와 tanh 함수
+
+* Sigmoid : 입력을 받아 0과 1 사이의 값으로 변환하는 함수
+
+
+```math
+σ(x)=\frac{1}{1+e^{−x}}
+```
+
+
+* tanh 함수 : 입력을 받아 −1과 1 사이의 값으로 변환하는 함수입니다.
+
+```math
+tanh(x)= \frac{e^x−e^{−x}}{e^x+e^{−x}}
+```
+
+
+* 두함수의 관계
+
+```math
+tanh(x)=2σ(2x)−1
+σ(x)= \frac{1}{2}(tanh(\frac{x}{2})+1)
+```
+
+
 ## GEGLU
 * Gelu Gated Linear Units [(Paper Link)](https://arxiv.org/pdf/2002.05202v1)
 
