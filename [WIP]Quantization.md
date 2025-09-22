@@ -50,7 +50,7 @@ FP32를 INT8(Unsigned) 로 변경한다고 가정하면, $\alpha_q=0, \beta_q=25
 
 $$
 \begin{align*}
-s &= \frac{\beta_q - \alpha_q}{\beta - \alpha} \\ &= \frac{255 - 0}{4.67 - (-4.75)} \\ &= \frac{255}{9.42} \\ &\approx 27.07
+s &= \frac{\beta - \alpha}{\beta_q - \alpha_q} \\ &= \frac{4.67 - (-4.75)}{255 - 0} \\ &= \frac{9.42}{255} \\ &\approx 0.037
 \end{align*}
 $$
 
@@ -69,10 +69,7 @@ $$
 $$
 \begin{align*}
 q &= \text{round}(s \cdot x) + z \\
-&= \text{round}(27.07 \cdot (-3.57)) + 129 \\
-&= \text{round}(-96.64) + 129 \\
-&= -97 + 129 \\
-&= 32
+&= \text{round}\left(\frac{-3.57}{0.037}\right) + 129 = 33 \\
 \end{align*}
 $$
 
