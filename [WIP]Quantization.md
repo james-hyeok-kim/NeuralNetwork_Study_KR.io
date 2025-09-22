@@ -20,7 +20,7 @@
 #### Example
 
 $$
-f_q(x, s, z) = \text{Clip}(\text{round}(s \cdot x) + z) \quad (1)
+f_q(x, s, z) = \text{Clip}(\text{round}\left(\frac{x}{s}\right) + z) \quad (1)
 $$
 
 * $f_q(x,s,z)$: 양자화(quantization)가 적용된 최종 값입니다.
