@@ -48,11 +48,11 @@ $\alpha_q, \beta_q$ :min/max values of quantized value
 
 FP32를 INT8(Unsigned) 로 변경한다고 가정하면, $\alpha_q=0, \beta_q=255$가 됨.
 
-$$
+```math
 \begin{align*}
 s &= \frac{\beta - \alpha}{\beta_q - \alpha_q} \\ &= \frac{4.67 - (-4.75)}{255 - 0} \\ &= \frac{9.42}{255} \\ &\approx 0.037
 \end{align*}
-$$
+```
 
 $$
 z = \text{round}\left(\frac{\beta \alpha_q - \alpha \beta_q}{\beta - \alpha}\right)
@@ -66,12 +66,12 @@ $$
 
 구한 s,z 를 이용해 x=−3.57 을 식(1)을 통해 양자화를 진행하면 아래와 같다
 
-$$
+```math
 \begin{align*}
 q &= \text{round}(s \cdot x) + z \\
 &= \text{round}\left(\frac{-3.57}{0.037}\right) + 129 = 33 \\
 \end{align*}
-$$
+```
 
 clipping 은 범위를 초과하는 값을 범위안에 가지도록함
 
@@ -108,7 +108,7 @@ Y_{i,j} = b_j + \sum_{k=1}^{p} X_{i,k} W_{k,j} \quad (1)
 $$
 
 
-$$
+```math
 \begin{align*}
 Y_{i,j} &= b_j + \sum_{k=1}^{p} X_{i,k} W_{k,j} \\
 &= s_b(b_{q,j} - z_b) + \sum_{k=1}^{p} s_X(X_{q,i,k} - z_X) s_W(W_{q,k,j} - z_W) \\
@@ -116,7 +116,7 @@ Y_{i,j} &= b_j + \sum_{k=1}^{p} X_{i,k} W_{k,j} \\
 &= s_b(b_{q,j} - z_b) + s_X s_W \left[ \left(\sum_{k=1}^{p} X_{q,i,k} W_{q,k,j}\right) - \left(z_W \sum_{k=1}^{p} X_{q,i,k}\right) - \left(z_X \sum_{k=1}^{p} W_{q,k,j}\right) + p z_X z_W \right] \\
 &= s_Y(Y_{q,i,j} - z_Y)
 \end{align*}
-$$
+```
 
 *위 식에서 X_q,W_q,b_q,Y_q는 X,W,b,Y 각각의 양자화(Quantization)가 적용된 행렬입니다. s_X,s_W,s_b,s_Y는 각각의 **스케일(scale)*이고, z_X,z_W,z_b,z_Y는 각각의 제로 포인트(zero point) 입니다
 
