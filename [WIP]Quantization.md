@@ -12,6 +12,11 @@
 <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/c5ccfc9d-25be-4241-9f3b-9ff3b4ee55e2" />
 </p>
 
+#### Symmetric vs Asymmetric (Zero Point)
+<p align="center">
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/f617469e-0c7a-48eb-9482-5de8323fe3e6" />
+</p>
+
 #### Example
 
 $$
@@ -73,17 +78,24 @@ $$
 
 clipping 은 범위를 초과하는 값을 범위안에 가지도록함
 
-$$
+```math
 \text{clip}(x, \alpha_q, \beta_q) =
 \begin{cases} 
 \alpha_q & \text{if } x < \alpha_q \\
 x & \text{if } \alpha_q \le x \le \beta_q \\
 \beta_q & \text{if } x > \beta_q 
 \end{cases}
-$$
+```
 ​
  
 이와 같은 quantization 기법을 uniform quantization이라고 부르며, 결과로 얻어지는 quantized values는 균등하게 분포된다.
+
+##### Quantization
+$$f_q(x, s, z) = \text{clip}(\text{round}(\frac{1}{s}x + z), \alpha_q, \beta_q)$$
+
+##### Dequantization
+$$f_d(x_q, s, z) = s(x_q - z)$$
+
 
 ### Quantized Matrix Multiplication
 <p align ="center">
@@ -128,5 +140,28 @@ Clipping range [α,β]를 결정하는 여러 가지 calibration 방법이 있�
 
 ### PTQ vs QAT
 <p align="center">
-<img width="600" height="200" alt="image" src="https://github.com/user-attachments/assets/59c1987c-1663-4698-90d9-bd4dc21b1b3f" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/59c1987c-1663-4698-90d9-bd4dc21b1b3f" />
 </p>
+
+#### QAT 매커니즘
+* floating point 모델에서 quantized된 정수 모델로 변환하는 동안 quantized가 발생하는 위치에 fake quantization module, 즉 quantization 및 dequantization 모듈을 배치하여 integer quantization에 의해 가져오는 클램핑 및 반올림의 효과를 시뮬레이션합니다.
+
+* QAT는 forward / backward 에서 weight와 activation function 출력에 대한 양자화를 학습 중에 시뮬레이션 한다.
+
+* 빨간 노드(act quant, wt quant) 을 fake quantization node라고 하고 forward / backward pass에서 quantization 적용 시 영향을 시뮬레이션하게 된다.
+
+<p align="center">
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/b32b756c-75a0-49c7-8cc3-0b08931f2c1e" />
+</p>
+
+#### QAT의 장점과 단점
+##### 장점
+1. 높은 정확도: PTQ에 비해 양자화로 인한 정확도 손실이 훨씬 적습니다. 특히 복잡하고 깊은 모델일수록 효과가 큽니다.
+2. 안정적인 성능: 양자화에 견고한(robust) 모델을 만들어, 추론 환경에서 발생할 수 있는 정밀도 저하에 덜 민감합니다.
+3. 다양한 활용: INT8 외에도 더 낮은 비트(예: INT4)로 양자화하는 경우에도 높은 성능을 유지할 수 있습니다. 
+
+##### 단점
+1. 추가 학습 필요: 기존에 학습된 모델을 활용할 수 없고, QAT를 위해 추가적인 재학습 또는 처음부터 학습을 진행해야 합니다.
+2. 계산 자원 소모: 추가적인 학습 단계가 필요하므로 더 많은 시간과 계산 자원이 소모됩니다.
+3. 제한적인 효과: 모델이나 데이터셋의 규모가 작은 경우에는 QAT의 효과가 크지 않을 수 있습니다. 
+
