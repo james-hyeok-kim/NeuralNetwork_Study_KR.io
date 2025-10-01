@@ -35,6 +35,14 @@ $$
 
 * Clip(): 계산된 값을 미리 정해진 특정 범위(예: 8비트 정수라면 0 ~ 255) 안에 있도록 잘라내는 함수입니다.
 
+##### Symmetric
+
+$$
+s=\frac{abs_{max}}{q_{max}}
+​$$
+
+
+##### Asymmetric
 
 $$
 s = \frac{\beta - \alpha}{\beta_q - \alpha_q} \quad (2)
