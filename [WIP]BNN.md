@@ -196,6 +196,7 @@ Do: 가중치 (Weights), Re: 활성화 (Activations), Fa: 그래디언트 (Gradi
 * 1-bit : +1 or -1로 변환
   * $r_i$ 전체 가중치
   * $E(|r_{i}|)$ 스케일 팩터 절대값 평균
+
 $$
 r_{o} = \text{sign}(r_{i}) \times E(|r_{i}|)
 $$
@@ -210,9 +211,11 @@ $$
 
 * 역전파 시에는 STE(Stright-Through Estimator)를 사용
 * 1-bit
+
 $$
 \frac{\partial c}{\partial r_{i}} = \frac{\partial c}{\partial r_{o}}
 $$
+
 * K-bit: 체인룰
 
 $$
@@ -222,6 +225,7 @@ $$
 #### Forward Pass (Activations 양자화)
 * 활성함수 값은 이전 레이어를 \[0,1\]범위로 제한
 * 활성화 값 $r$
+
 $$f_{a}^{k}(r) = \text{quantize}_{k}(r)$$
 
 #### Backward Pass (Activations 양자화)
