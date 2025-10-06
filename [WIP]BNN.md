@@ -190,4 +190,61 @@ DoReFa-Net은 이를 해결하기 위해 다음과 같은 방법을 사용합니
 Do: 가중치 (Weights), Re: 활성화 (Activations), Fa: 그래디언트 (Gradients)
 
 
+### DoReFa-Net Forward & Backward
+
+#### Forward Pass (Weight 양자화)
+* 1-bit : +1 or -1로 변환
+  * $r_i$ 전체 가중치
+  * $E(|r_{i}|)$ 스케일 팩터 절대값 평균
+$$
+r_{o} = \text{sign}(r_{i}) \times E(|r_{i}|)
+$$
+
+* K-bit: 양자화를 위해 tanh함수를 적용하여 가중치 \[-1,1\]범위로 제한
+
+$$
+r_{o} = 2 \times \text{quantize}_{k}\left( \left( \frac{\tanh(r_{i})}{2 \times \max(|\tanh(r_{i})|)} + 0.5 \right) - 1 \right)
+$$
+
+#### Backward Pass (Weight 양자화)
+
+* 역전파 시에는 STE(Stright-Through Estimator)를 사용
+* 1-bit
+$$
+\frac{\partial c}{\partial r_{i}} = \frac{\partial c}{\partial r_{o}}
+$$
+* K-bit: 체인룰
+
+$$
+\frac{\partial c}{\partial r_{i}} = \frac{\partial r_{o}}{\partial r_{i}} \times \frac{\partial c}{\partial r_{o}}
+$$
+
+#### Forward Pass (Activations 양자화)
+* 활성함수 값은 이전 레이어를 \[0,1\]범위로 제한
+* 활성화 값 $r$
+$$f_{a}^{k}(r) = \text{quantize}_{k}(r)$$
+
+#### Backward Pass (Activations 양자화)
+
+* Weight와 마찬가지로 계산
+
+#### Forward Pass (Gradients 양자화)
+
+* 순전파 그래디언트 없음으로 입력 = 출력 $r_o = r_i$
+
+#### Backward Pass (Gradients 양자화)
+
+* 그래디언트 값을 \[0, 1\] 범위로 정규화한 후, 균등분포(-0.5 ~ 0.5)를 따르는 노이즈(N(k))를 추가합니다. 이 노이즈는 양자화로 인해 발생할 수 있는 편향을 줄여 성능을 향상
+
+$$ \frac{\partial c}{\partial r_{i}} = f_{\gamma}^{k}\left( \frac{\partial c}{\partial r_{o}} \right) $$
+
+
+
+
+
+
+
+
+
+
 
