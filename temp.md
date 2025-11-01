@@ -13,3 +13,8 @@
   * If the token is rejected, all subsequent gesses are discarded. 
 4. Correction & Sampling
   * All guesses are accepted (n = 𝜸)
+    * $\gamma + 1$ tokens are genearted at once
+  * k-th token is rejected (n = k - 1)
+    * Append only the accepted tokens $(x_1 ... , x_{k-1})$
+    * k-th token must be corrected 
+5. iteration 
